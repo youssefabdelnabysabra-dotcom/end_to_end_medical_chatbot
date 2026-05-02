@@ -91,3 +91,7 @@ tempCodeRunnerFile.py
 .ruff_cache/
 .pypirc
 .streamlit/secrets.toml
+
+# Ignore CI folder and large data directory
+.github/
+Data/
