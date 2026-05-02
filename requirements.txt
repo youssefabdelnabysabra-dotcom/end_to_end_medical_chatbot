@@ -1,11 +1,43 @@
+<<<<<<< HEAD
 sentence-transformers==2.2.2
 langchain
 flask
 pypdf
 python-dotenv
 pinecone[grpc]
-langchain-pinecone
-langchain_community
-langchain_openai
-langchain_experimental
+# Core ML infra
+torch>=1.13.1
+sentence-transformers==2.2.2
+transformers>=4.30.0
+huggingface-hub>=0.13.0
+
+# LangChain core + integrations
+# Use a broad compatible range for `langchain` and a tested `langchain-pinecone`.
+langchain>=0.0.300,<1.0
+langchain-community>=0.0.5
+langchain-text-splitters>=0.0.1
+langchain-pinecone==0.2.13
+langchain-openai==0.0.3
+
+# Pinecone (ensure <8.x for langchain-pinecone compatibility)
+pinecone-client[grpc]<8.0.0,>=2.2.1
+
+# OpenAI client
+openai>=0.27.0
+
+# Utilities and runtime
+flask>=2.2.2
+python-dotenv>=1.0.0
+pypdf>=3.8.0
+numpy>=1.24.0
+scikit-learn>=1.1.0
+tqdm>=4.65.0
+
+# If the project package is editable
 -e .
+
+# Notes:
+# - These versions were chosen to be mutually compatible with
+#   `sentence-transformers==2.2.2` and the LangChain pinecone integration.
+# - If you rely on CUDA for torch, install the appropriate `torch` wheel
+#   for your CUDA version instead of the generic `torch` above.
